@@ -6,6 +6,7 @@ import { TestPageComponent } from './test-page/test-page.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsPageComponent } from './settings-page/settings-page.component';
 import { StatisticsPageComponent } from './statistics-page/statistics-page.component';
+import { AnalyticsPageComponent } from './analytics-page/analytics-page.component';
 
 // hint Rout-ы ангуляра
 const routes: Routes = [{
@@ -19,6 +20,10 @@ const routes: Routes = [{
     {
       path: 'statistics-page',
       component: StatisticsPageComponent,
+    },
+    {
+      path: 'analytics-page',
+      component: AnalyticsPageComponent,
     },
     {
       path: 'dashboard',
