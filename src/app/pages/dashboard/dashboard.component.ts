@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import * as Highcharts from 'highcharts';
 import MapModule from 'highcharts/modules/map';
+import { MapData } from 'app/models/data/map-data';
+import { MapService } from 'app/models/services/map.service';
 
 // import * as Highcharts from 'highcharts/highmaps';
 
@@ -15,14 +17,33 @@ MapModule(Highcharts);
 })
 export class DashboardComponent implements OnInit {
 
+  dataSource: MapService;
+
   Highcharts: typeof Highcharts = Highcharts;
   chartOptions: Highcharts.Options;
   chartConstructor: any = 'mapChart';
+  updateFlag: boolean = true;
+  selectedYear: number;
+  selectedType: string;
 
-  constructor() { }
+  years: number[];
+  dataFromServer: MapData[];
+
+  // паратры графика
+  chartData: any;
+  chartMax: any;
+
+  constructor(private _dataSource: MapService) {
+    this.dataSource = _dataSource;
+  }
 
   ngOnInit(): void {
-    const data = [
+    this.dataSource.getAll().subscribe((data) => {
+      this.dataFromServer = data;
+      this.years = data.map(function(dataSet) { return dataSet.year});
+    });
+
+    this.chartData = [
       ['ru-sc', 100],
       ['ru-kr', 1],
       ['ru-2485', 2],
@@ -130,6 +151,8 @@ export class DashboardComponent implements OnInit {
       },
       colorAxis: {
         min: 0,
+        minColor: '#1b9904',
+        maxColor: '#990e0c',
       },
       series: [{
         name: 'Random data',
@@ -143,10 +166,37 @@ export class DashboardComponent implements OnInit {
           enabled: false,
           format: '{point.name}',
         },
-        data: data,
+        data: this.chartData,
       } as Highcharts.SeriesMapOptions],
     };
 
+  }
+
+  parameterChanged($event: any): void {
+    // console.log($event);
+    // console.log(this.selectedYear);
+    const year = this.selectedYear;
+    // let year = this.selectedYear;
+
+    // tslint:disable-next-line:no-console
+    console.log(this.dataFromServer.filter(function(dataSet) {
+      return dataSet.year === year;
+    }));
+    const filtered = this.dataFromServer.filter(function(dataSet) {
+      return dataSet.year === year;
+    });
+    // tslint:disable-next-line:no-console
+    console.log(this.chartData);
+    // tslint:disable-next-line:no-console
+    console.log(filtered[0].birthrate);
+    this.chartData = filtered[0].birthrate;
+    // this.chartOptions.series[0].data = this.chartData;
+    // tslint:disable-next-line:no-console
+    console.log(this.chartOptions);
+    // this.chartData = this.dataFromServer.filter(function(dataSet) {
+    //   console.log(dataSet.year);
+    //   return dataSet.year === this.selectedYear;
+    // })[0];
   }
 
 }
