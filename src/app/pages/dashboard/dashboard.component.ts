@@ -40,10 +40,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.dataSource.getAll().subscribe((data) => {
       this.dataFromServer = data;
-      // tslint:disable-next-line:no-console
-      console.log(data);
       this.years = data.map(function(dataSet) { return dataSet.year});
-      console.log(this.years);
     });
 
     this.chartData = [
@@ -180,31 +177,26 @@ export class DashboardComponent implements OnInit {
     // console.log(this.selectedYear);
     const year = this.selectedYear;
     // let year = this.selectedYear;
+
+    // tslint:disable-next-line:no-console
     console.log(this.dataFromServer.filter(function(dataSet) {
       return dataSet.year === year;
     }));
     const filtered = this.dataFromServer.filter(function(dataSet) {
       return dataSet.year === year;
     });
+    // tslint:disable-next-line:no-console
     console.log(this.chartData);
+    // tslint:disable-next-line:no-console
     console.log(filtered[0].birthrate);
     this.chartData = filtered[0].birthrate;
-    this.chartOptions.series[0].data = this.chartData;
+    // this.chartOptions.series[0].data = this.chartData;
+    // tslint:disable-next-line:no-console
     console.log(this.chartOptions);
-    this.Highcharts.redrow();
     // this.chartData = this.dataFromServer.filter(function(dataSet) {
     //   console.log(dataSet.year);
     //   return dataSet.year === this.selectedYear;
     // })[0];
   }
 
-  yearChanged(year: any): void {
-    console.log($event);
-    console.log(this.dataFromServer.filter(function(dataSet) {
-      return dataSet.year === this.selectedYear;
-    }));
-    this.chartData = this.dataFromServer.filter(function(dataSet) {
-      return dataSet.year === this.selectedYear;
-    })[0];
-  }
 }
