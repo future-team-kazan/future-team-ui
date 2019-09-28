@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { MapData } from 'app/models/data/map-data';
 import { MapDataList } from 'app/models/data/map-data';
-import { of as observableOf, Observable, throwError } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, retry } from 'rxjs/operators';
 
