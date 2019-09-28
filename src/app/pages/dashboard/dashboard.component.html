@@ -11,16 +11,21 @@
           ></highcharts-chart>
         </nb-layout-column>
         <nb-layout-column class="col-md-4 col-sm-12">
-          Year
-          <nb-select placeholder="Select Year" [(selected)]="selectedYear" (selectedChange)="parameterChanged($event)">
-            <nb-option *ngFor="let year of years" [value]="year"> {{ year }}</nb-option>
-          </nb-select>
+          <nb-card>
+            <nb-card-body>
 
-          Показатель
-          <nb-select placeholder="Select Parameter" [(selected)]="selectedType" (selectedChange)="parameterChanged($event)">
-            <nb-option value="birthrate">Рождаемость</nb-option>
-            <nb-option value="deathrate">Смертность</nb-option>
-          </nb-select>
+              <nb-select placeholder="Select Year" [(selected)]="selectedYear" (selectedChange)="parameterChanged($event)">
+                <nb-option [value]="null">Выберите год</nb-option>
+                <nb-option *ngFor="let year of years" [value]="year"> {{ year }}</nb-option>
+              </nb-select>
+
+              <nb-select placeholder="Select Parameter" [(selected)]="selectedType" (selectedChange)="parameterChanged($event)">
+                <nb-option [value]="null">Выберите фактор</nb-option>
+                <nb-option value="birthrate">Рождаемость</nb-option>
+                <nb-option value="deathrate">Смертность</nb-option>
+              </nb-select>
+            </nb-card-body>
+          </nb-card>
         </nb-layout-column>
     </nb-layout>
   </div>
