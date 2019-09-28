@@ -15,7 +15,9 @@ import {
   NbChatModule,
   NbDatepickerModule,
   NbDialogModule,
+  NbLayoutModule,
   NbMenuModule,
+  NbSelectModule,
   NbSidebarModule,
   NbToastrModule,
   NbWindowModule,
@@ -30,7 +32,8 @@ import {
     AppRoutingModule,
 
     ThemeModule.forRoot(),
-
+    NbLayoutModule,
+    NbSelectModule,
     NbSidebarModule.forRoot(),
     NbMenuModule.forRoot(),
     NbDatepickerModule.forRoot(),
