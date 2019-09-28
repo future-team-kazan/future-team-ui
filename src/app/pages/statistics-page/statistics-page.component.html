@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-lg-4">
+    <nb-card>
+      <nb-card-body>
+        <nb-select *ngIf="factors" placeholder="Выберите показатель" [(ngModel)]="factor"> 
+          <nb-option value="" value="">Выберите показатель</nb-option>
+          <nb-option *ngFor="let factor of factors" [value]="factor">
+              {{factor}}
+          </nb-option>
+        </nb-select>
+      </nb-card-body>
+    </nb-card>
+  </div>
+  <div class="col-lg-4">
+    <nb-card>
+      <nb-card-body>
+        <nb-select *ngIf="regions" placeholder="Выберите регион" [(ngModel)]="region"> 
+          <nb-option value="" value="">Выберите регион</nb-option>
+          <nb-option *ngFor="let region of regions" [value]="region">
+              {{region}}
+          </nb-option>
+        </nb-select>  
+      </nb-card-body>
+    </nb-card>
+  </div>
+  <div class="col-lg-4">
+    <nb-card>
+      <nb-card-body>
+        text
+        
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <nb-card>
+      <nb-card-body>
+        <ngx-echarts-line></ngx-echarts-line>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
