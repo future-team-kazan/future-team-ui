@@ -7,7 +7,7 @@ export interface ChartDataItem {
 
 export interface ChartData {
   labels: string[];
-  dataset: ChartDataItem[];
+  datasets: ChartDataItem[];
 }
 
 export abstract class ChartDataInterface {

@@ -7,18 +7,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable()
 export class ChartService implements ChartDataInterface {
 
-  private apiUrl = 'https://iminister.site/api/';
-  private chartDataUrl = 'getalldata.php';
-
-  private chartDataFile = 'app/pages/charts/models/services/pie-chart.json';
-
-  // private data = {
-  //   labels: ['Download Sales', 'In-Store Sales', 'Mail Sales'],
-  //   dataset: [{
-  //     label: 'Доходы',
-  //     data: [65, 59, 80]
-  //   }]
-  // };
+  private apiUrl = 'http://iminister.site/rest/';
+  private chartDataUrl = 'death.php';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -27,11 +17,6 @@ export class ChartService implements ChartDataInterface {
   };
 
   constructor(private http: HttpClient) { }
-
-
-  // getItems(): Observable<ChartData> {
-  //   return observableOf(this.data);
-  // }
 
 
   getChartData(): Observable<ChartData> {
