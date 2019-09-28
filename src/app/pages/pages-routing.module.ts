@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { PagesComponent } from './pages.component';
 import { TestPageComponent } from './test-page/test-page.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsPageComponent } from './settings-page/settings-page.component';
 
 // hint Rout-ы ангуляра
 const routes: Routes = [{
@@ -12,6 +14,14 @@ const routes: Routes = [{
     {
       path: 'test-page',
       component: TestPageComponent,
+    },
+    {
+      path: 'dashboard',
+      component: DashboardComponent,
+    },
+    {
+      path: 'settings-page',
+      component: SettingsPageComponent,
     },
   ],
 }];
