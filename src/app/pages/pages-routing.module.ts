@@ -13,10 +13,6 @@ const routes: Routes = [{
   component: PagesComponent,
   children: [
     {
-      path: 'test-page',
-      component: TestPageComponent,
-    },
-    {
       path: 'statistics-page',
       component: StatisticsPageComponent,
     },

@@ -9,11 +9,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
     home: true,
   },
   {
-    title: 'Test Page',
-    icon: 'shopping-cart-outline',
-    link: '/pages/test-page',
-  },
-  {
     title: 'Статистика',
     icon: 'activity',
     link: '/pages/statistics-page',
@@ -24,27 +19,5 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'settings',
     link: '/pages/settings-page',
     home: true,
-  },
-  {
-    title: 'Auth',
-    icon: 'lock-outline',
-    children: [
-      {
-        title: 'Login',
-        link: '/auth/login',
-      },
-      {
-        title: 'Register',
-        link: '/auth/register',
-      },
-      {
-        title: 'Request Password',
-        link: '/auth/request-password',
-      },
-      {
-        title: 'Reset Password',
-        link: '/auth/reset-password',
-      },
-    ],
   },
 ];

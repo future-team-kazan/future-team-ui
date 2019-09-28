@@ -16,6 +16,7 @@ import { ChartjsLineComponent } from './chartjs-line.component';
 import { EchartsLineComponent } from './echarts-line.component';
 
 import { StatisticsPageComponent } from './statistics-page.component';
+import {ChartService} from 'app/models/services/chart.service';
 
 const components = [
   ChartjsLineComponent,
@@ -38,6 +39,7 @@ const components = [
     StatisticsPageComponent, ...components,
   ],
   providers: [
+    ChartService,
   ],
 })
 export class StatisticsPageModule { }
