@@ -12,7 +12,7 @@ export class StatPageComponent {
 @Component({
   selector: 'ngx-statistics-page',
   templateUrl: './statistics-page.component.html',
-  /*styleUrls: ['./statistics-page.component.scss'],*/
+  styleUrls: ['./statistics-page.component.scss'],
 })
 export class StatisticsPageComponent {
 

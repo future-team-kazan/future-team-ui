@@ -1,33 +1,28 @@
 <div class="row">
-  <div class="col-lg-4">
+  <div class="col-lg-8 col-md-12">
     <nb-card>
       <nb-card-body>
-        <nb-select *ngIf="factors" placeholder="Выберите показатель" [(ngModel)]="factor"> 
-          <nb-option value="" value="">Выберите показатель</nb-option>
-          <nb-option *ngFor="let factor of factors" [value]="factor">
-              {{factor}}
-          </nb-option>
-        </nb-select>
-      </nb-card-body>
-    </nb-card>
-  </div>
-  <div class="col-lg-4">
-    <nb-card>
-      <nb-card-body>
-        <nb-select *ngIf="regions" placeholder="Выберите регион" [(ngModel)]="region"> 
-          <nb-option value="" value="">Выберите регион</nb-option>
-          <nb-option *ngFor="let region of regions" [value]="region">
-              {{region}}
-          </nb-option>
-        </nb-select>  
-      </nb-card-body>
-    </nb-card>
-  </div>
-  <div class="col-lg-4">
-    <nb-card>
-      <nb-card-body>
-        text
-        
+        <div class="statistics">
+            <div class="statistics__item factors">
+              <nb-select *ngIf="factors" placeholder="Выберите показатель" [(ngModel)]="factor"> 
+                <nb-option value="" value="">Выберите показатель</nb-option>
+                <nb-option *ngFor="let factor of factors" [value]="factor">
+                  {{factor}}
+                </nb-option>
+              </nb-select>
+            </div>
+            <div class="statistics__item regions">
+              <nb-select *ngIf="regions" placeholder="Выберите регион" [(ngModel)]="region"> 
+                <nb-option value="" value="">Выберите регион</nb-option>
+                <nb-option *ngFor="let region of regions" [value]="region">
+                  {{region}}
+                </nb-option>
+              </nb-select>
+            </div>
+            <div>
+              <button type="submit" nbButton status="primary" (click)="queryData(factor, region)">Показать</button>
+            </div>
+        </div>
       </nb-card-body>
     </nb-card>
   </div>
