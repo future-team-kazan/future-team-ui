@@ -14,6 +14,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/test-page',
   },
   {
+    title: 'Статистика',
+    icon: 'activity',
+    link: '/pages/statistics-page',
+    home: true,
+  },
+  {
     title: 'Настройки',
     icon: 'settings',
     link: '/pages/settings-page',

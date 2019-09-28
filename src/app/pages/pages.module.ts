@@ -8,6 +8,7 @@ import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import {TestPageModule} from './test-page/test-page.module';
 import {DashboardModule} from './dashboard/dashboard.module';
 import {SettingsPageModule} from './settings-page/settings-page.module';
+import {StatisticsPageModule} from './statistics-page/statistics-page.module';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import {SettingsPageModule} from './settings-page/settings-page.module';
     TestPageModule,
     DashboardModule,
     SettingsPageModule,
+    StatisticsPageModule,
   ],
   declarations: [
     PagesComponent,

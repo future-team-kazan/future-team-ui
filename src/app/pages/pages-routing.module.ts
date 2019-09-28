@@ -5,6 +5,7 @@ import { PagesComponent } from './pages.component';
 import { TestPageComponent } from './test-page/test-page.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsPageComponent } from './settings-page/settings-page.component';
+import { StatisticsPageComponent } from './statistics-page/statistics-page.component';
 
 // hint Rout-ы ангуляра
 const routes: Routes = [{
@@ -14,6 +15,10 @@ const routes: Routes = [{
     {
       path: 'test-page',
       component: TestPageComponent,
+    },
+    {
+      path: 'statistics-page',
+      component: StatisticsPageComponent,
     },
     {
       path: 'dashboard',
