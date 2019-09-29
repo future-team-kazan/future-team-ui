@@ -10,6 +10,8 @@ import { LocalDataSource } from 'ng2-smart-table';
 })
 export class SettingsPageComponent {
 
+  factorsIsGood: any;
+
   settings = {
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
@@ -26,10 +28,6 @@ export class SettingsPageComponent {
       confirmDelete: true,
     },
     columns: {
-      id: {
-        title: 'ID',
-        type: 'number',
-      },
       factorName: {
         title: 'Название показателя',
         type: 'string',
@@ -43,10 +41,19 @@ export class SettingsPageComponent {
 
   source: LocalDataSource = new LocalDataSource();
 
-  /*constructor(private service: SmartTableData) {
-    const data = this.service.getData();
-    this.source.load(data);
-  }*/
+  constructor() {
+    // const data = this.service.getData();
+    this.source.load([
+      {factorName: 'Наличае перенатального центра', factorType: 'Да/Нет', isGood: true},
+      {factorName: 'Внедрена телемедицина', factorType: 'Да/Нет', isGood: true},
+      {factorName: 'Количество медучреждений', factorType: 'Число', isGood: false},
+      {factorName: 'Количество врачей', factorType: 'Число', isGood: true},
+      {factorName: 'Расходы на здравоохранение', factorType: 'Число', isGood: false},
+      {factorName: 'Население', factorType: 'Число', isGood: true},
+      {factorName: 'Транспортная доступность', factorType: 'Число', isGood: true},
+      {factorName: 'Коффициент фертильности', factorType: 'Число', isGood: false},
+    ]);
+  }
 
   onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {
@@ -55,4 +62,20 @@ export class SettingsPageComponent {
       event.confirm.reject();
     }
   }
+
+  calculateFactors(): void {
+    this.source.getAll().then(value => {
+      this.factorsIsGood = value.map(item => {
+        // return Object.assign(item, {isGood: this.getRandBool()} )
+        // return {isGood: this.getRandBool()};
+        return item.isGood;
+      });
+
+    });
+  }
+
+  private getRandBool() {
+    return ( (+new Date() % 2) !== 0); // Readable, succint
+  }
+
 }

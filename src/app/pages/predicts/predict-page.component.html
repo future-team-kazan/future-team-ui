@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-header>
+        Предсказательная аналитика
+      </nb-card-header>
+      <nb-card-body>
+        <div>Динамика детской смертности в Республике Хакасия</div>
+        <ngx-chartjs-line-predict [data]="chartData"></ngx-chartjs-line-predict>
+        <nb-list>
+          <nb-list-item *ngFor="let cost of costs">
+            {{ cost.name }} ({{cost.type}}) : {{cost.cost}}
+          </nb-list-item>
+        </nb-list>
+        <div>Добавление элемента списка</div>
+        <div class="statistics">
+          <div class="statistics__item statistics__item_analytics">
+            <input type="text" nbInput placeholder="Название" [(ngModel)]="name">
+          </div>
+          <div class="statistics__item statistics__item_analytics">
+            <nb-select fullWidth=true size="large" placeholder="Тип расхода" [(ngModel)]="type">
+<!--              <nb-option value="" value="">Тип расхода</nb-option>-->
+              <nb-option *ngFor="let thisType of types" [value]="thisType.key">{{thisType.value}}</nb-option>
+            </nb-select>
+          </div>
+          <div class="statistics__item statistics__item_analytics">
+            <input type="text" nbInput placeholder="Сумма" [(ngModel)]="amount">
+          </div>
+          <div class="statistics__item">
+            <button type="submit" nbButton status="primary" (click)="addDataToList(name, type, amount)">Добавить</button>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

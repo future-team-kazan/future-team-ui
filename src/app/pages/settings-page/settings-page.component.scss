@@ -4,6 +4,9 @@
   nb-card {
     transform: translate3d(0, 0, 0);
   }
+  nb-layout .layout {
+    background-color: #f7f9fc;
+  }
 
   ng2-smart-table ::ng-deep {
     .ng2-smart-action-add-add {

@@ -1,0 +1,49 @@
+@import '../../@theme/styles/themes';
+
+@include nb-install-component() {
+  ngx-chartjs-line {
+    display: block;
+    height: nb-theme(card-height-medium);
+    width: 100%;
+
+    ::ng-deep chart {
+      display: block;
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+.statistics {
+  display: flex;
+  justify-content: space-around;
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+  }
+
+  &__item {
+
+    @media (max-width: 450px) {
+      margin-bottom: 20px;
+      flex-basis: 100%;
+      text-align: center;
+    }
+
+    &_analytics {
+      flex-basis: 25%;
+
+      @media (max-width: 450px) {
+        flex-basis: 100%;
+      }
+
+      input, select {
+        width: 100%;
+      }
+      input {
+        padding: 15px;
+        border-radius: 4px;
+      }
+    }
+  }
+}

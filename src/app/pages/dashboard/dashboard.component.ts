@@ -157,7 +157,7 @@ export class DashboardComponent implements OnInit {
         maxColor: '#1b9904',
       },
       series: [{
-        name: 'Random data',
+        name: 'Наличие перенатального центра',
         allAreas: false,
         states: {
           hover: {

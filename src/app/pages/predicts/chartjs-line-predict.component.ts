@@ -2,12 +2,12 @@ import {Component, Input, OnDestroy} from '@angular/core';
 import { NbThemeService, NbColorHelper } from '@nebular/theme';
 
 @Component({
-  selector: 'ngx-chartjs-line',
+  selector: 'ngx-chartjs-line-predict',
   template: `
     <chart type="line" [data]="data" [options]="options"></chart>
   `,
 })
-export class ChartjsLineComponent implements OnDestroy {
+export class ChartjsLinePredictComponent implements OnDestroy {
   @Input() data: any;
   options: any;
   themeSubscription: any;
