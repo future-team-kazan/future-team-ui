@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import {
-  NbCardModule,
+  NbButtonModule,
+  NbCardModule, NbLayoutModule, NbListModule,
 } from '@nebular/theme';
 import { ThemeModule } from '../../@theme/theme.module';
 
@@ -12,6 +13,9 @@ import { SettingsPageComponent } from './settings-page.component';
 @NgModule({
   imports: [
     NbCardModule,
+    NbButtonModule,
+    NbListModule,
+    NbLayoutModule,
     ThemeModule,
     Ng2SmartTableModule,
     NbInputModule,

@@ -46,7 +46,6 @@ export class ChartjsLineComponent implements OnDestroy {
           ],
         },
         legend: {
-          display: false,
           labels: {
             fontColor: chartjs.textColor,
           },

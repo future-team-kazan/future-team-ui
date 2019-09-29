@@ -20,14 +20,14 @@
           <div class="statistics__item statistics__item_analytics">
             <nb-select fullWidth=true size="large" placeholder="Тип расхода" [(ngModel)]="type">
               <nb-option value="" value="">Тип расхода</nb-option>
-              <nb-option *ngFor="let type of types"  value="type.key">{{type.value}}</nb-option>
+              <nb-option *ngFor="let thisType of types" [value]="thisType.key">{{thisType.value}}</nb-option>
             </nb-select>
           </div>
           <div class="statistics__item statistics__item_analytics">
             <input type="text" nbInput placeholder="Сумма" [(ngModel)]="amount">
           </div>
           <div class="statistics__item">
-            <button type="submit" nbButton status="primary" (click)="addDataToList(name, type, amount)">Рассчитать</button>
+            <button type="submit" nbButton status="primary" (click)="addDataToList(name, type, amount)">Добавить</button>
           </div>
         </div>
       </nb-card-body>

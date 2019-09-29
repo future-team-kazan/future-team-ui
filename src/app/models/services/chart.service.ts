@@ -9,6 +9,8 @@ export class ChartService implements ChartDataInterface {
 
   private apiUrl = 'http://iminister.site/rest/';
   private chartDataUrl = 'death.php';
+  private chartDataUrl1 = 'death-prenatal.php';
+  private chartDataUrl2 = 'death-wprenatal.php';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -20,7 +22,15 @@ export class ChartService implements ChartDataInterface {
 
 
   getChartData(): Observable<ChartData> {
-    return this.http.get<ChartData>(this.apiUrl + this.chartDataUrl, this.httpOptions)
+    return this.http.get<ChartData>(this.apiUrl + this.chartDataUrl1, this.httpOptions)
+      .pipe(
+        retry(1),
+        catchError(this.errorHandl)
+      );
+  }
+
+  getChartData2(): Observable<ChartData> {
+    return this.http.get<ChartData>(this.apiUrl + this.chartDataUrl2, this.httpOptions)
       .pipe(
         retry(1),
         catchError(this.errorHandl)

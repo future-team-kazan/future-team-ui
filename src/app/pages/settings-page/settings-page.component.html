@@ -1,9 +1,28 @@
 <div class="row">
   <div class="col-md-12">
     <nb-card>
+      <nb-card-header>
+        Показатели для оценки эффективности внедрения перенатального центра
+      </nb-card-header>
       <nb-card-body>
-        <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
-        </ng2-smart-table>
+        <nb-layout>
+          <nb-layout-column class="col-md-8">
+            <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
+            </ng2-smart-table>
+          </nb-layout-column>
+          <nb-layout-column class="col-md-4">
+            <button type="submit" nbButton status="primary" (click)="calculateFactors()">Рассчитать значимость</button>
+            <nb-list>
+              <nb-list-item>
+                <br>
+              </nb-list-item>
+              <nb-list-item *ngFor="let isGood of factorsIsGood">
+                <div *ngIf="isGood"><i class="nb-checkmark"></i> Есть корелляция</div>
+                <div *ngIf="!isGood"><i class="nb-close"></i> Нет корреляции</div>
+              </nb-list-item>
+            </nb-list>
+          </nb-layout-column>
+        </nb-layout>
       </nb-card-body>
     </nb-card>
   </div>
