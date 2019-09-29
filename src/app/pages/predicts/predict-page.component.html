@@ -19,7 +19,7 @@
           </div>
           <div class="statistics__item statistics__item_analytics">
             <nb-select fullWidth=true size="large" placeholder="Тип расхода" [(ngModel)]="type">
-              <nb-option value="" value="">Тип расхода</nb-option>
+<!--              <nb-option value="" value="">Тип расхода</nb-option>-->
               <nb-option *ngFor="let thisType of types" [value]="thisType.key">{{thisType.value}}</nb-option>
             </nb-select>
           </div>
